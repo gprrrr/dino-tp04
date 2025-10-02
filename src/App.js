@@ -4,7 +4,7 @@ import DinoGame from "react-chrome-dino";
 function App() {
     return (
         <div>
-            <h1>TP04 – Dino Game</h1>
+            <h1>TP04 – Dino Game - UPDATE </h1>
             <DinoGame />
         </div>
     );
