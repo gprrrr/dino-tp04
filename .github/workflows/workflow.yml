@@ -5,22 +5,22 @@ on:
     branches: [develop, main]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       packages: write
-
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/login-action@v3
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: Login to Private Github container registry
+        uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v5
+      - name: Build and push docker image
+        uses: docker/build-push-action@v5
         with:
           push: true
           tags: |
